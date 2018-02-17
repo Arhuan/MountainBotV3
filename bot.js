@@ -15,6 +15,17 @@ bot.on("message", (message) => {
         switch (cmd) {
             case "ping":
                 message.channel.send("pong!");
+            case "join":
+                if (!message.guild) return;
+                if (message.member.voiceChannel) {
+                    message.member.voiceChannel.join()
+                    .then(connection => { // Connection is an instance of VoiceConnection
+                        message.reply('I have successfully connected to the channel!');
+                      })
+                      .catch(console.log);
+                } else {
+                    message.reply("You are not in a voice channel.");
+                }
             break;
         }
     }
