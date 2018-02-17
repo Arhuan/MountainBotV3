@@ -1,2 +1,2 @@
-# MouantainBotV3
+# MountainBotV3
 A bot for discord
