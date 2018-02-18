@@ -50,7 +50,11 @@ module.exports = {
 
     play : function (message) {
         if (voiceconnection != null) {
-            voiceconnection.playStream(streams[0]);
+            if (streams.length == 0) {
+                message.reply("Queue is empty.");
+            } else {
+                voiceconnection.playStream(streams.shift());
+            }
         } else {
             message.reply("No songs in playlist.");
         }
