@@ -8,7 +8,6 @@ var bot = new Discord.Client ();
 var searchImage = require("./mountainImages.js");
 var cats = require("./cats.js");
 var tictactoe = require("./tictactoe.js");
-var city_list = require('./city.list.json');
 var game = require("./game.js");
 
 
