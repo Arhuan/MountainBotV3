@@ -19,9 +19,24 @@ module.exports = {
             message.reply("You are not in a voice channel.");
         }
     } ,
+    
+    disconnect : function(message) {
+        if (voiceconnection != null) {
+            voiceconnection.disconnect();
+            voiceconnection = null;
+            message.reply("Disconnected from voice channel.");
+        } else {
+            message.reply("I am not currently connected to a voice channel.");
+        }
+    } ,
+
     add : function(message, url) {
-        streams.push(ytdl(url, {filter: "audioonly"}));
-        message.reply("Song added.");
+        try {
+            streams.push(ytdl(url, {filter: "audioonly"}));
+            message.reply("Song added.");
+        } catch(error){
+            message.reply("Give me a proper YouTube URL.");
+        }
     },
 
     play : function (message) {
