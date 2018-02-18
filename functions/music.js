@@ -60,6 +60,7 @@ module.exports = {
                         this.play(message);
                     } else {
                         voiceconnection.disconnect();
+                        voiceconnection = null;
                     }
                 });
             }
