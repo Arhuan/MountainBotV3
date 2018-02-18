@@ -92,6 +92,9 @@ function handle_command(cmd, message, target, arg) {
         case "image":
             searchImage.searchImg(message, target, arg);
             break;
+        case "cats":
+            cats.cats(message);
+            break;
     break;
     }
 }
