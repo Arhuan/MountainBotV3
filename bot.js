@@ -39,43 +39,56 @@ function raccoon(message){
 
 function handle_command(cmd, message, target, arg) {
     switch (cmd) {
+        // pong!
         case "ping":
             ping(message);
             break;
+        // bot will join the voice channel
         case "join":
             music.join(message);
             break;
+        // disconnects bot from voice channel
         case "disconnect":
             music.disconnect(message);
             break;
+        // lists all the commands
         case "help":
             help(message);
             break;
+        // raccoon
         case "raccoon":
             raccoon(message);
             break;
+        // adds a song to the queue
         case "add":
             if (target != null) 
                 music.add(message, target);
             break;
+        // removes song from queue
         case "remove":
             music.remove(message);
             break;
+        // plays the song in front of queue
         case "play":
             music.play(message);
             break;
+        // pauses current song
         case "pause":
             music.pause(message);
             break;
+        // resumes the song
         case "resume":
             music.resume(message);
             break;
+        // returns weather information
         case "weather":
             weather.weather(message, target);
             break;
+        // flips a coin, heads or tail
         case "coinflip":
             coinflip.coinflip(message);
             break;
+        // a random image search with given arguments
         case "image":
             searchImage.searchImg(message, target, arg);
             break;
