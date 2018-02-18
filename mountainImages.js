@@ -2,27 +2,13 @@
 // CSE ID : 008030941676365421230:jptivdegq0w
 // API KEY :AIzaSyBN2S7JKaiww6s6BQM8FRBjf-0UgZv1jq8
 
-const cse_ID  = '008030941676365421230:jptivdegq0w';
-const API_Key = 'AIzaSyBN2S7JKaiww6s6BQM8FRBjf-0UgZv1jq8';
+const cse_ID  = '005832064830925815114:e_xlpswsc5e';
+const API_Key = 'AIzaSyCY1vES20Cxn7pYPOjob0amdf9x-mWGbVs';
 const GoogleImages = require('google-images');
  
 const client = new GoogleImages(cse_ID, API_Key);
 
+const images = client.search('Aaron Huang');
 
-client.search('nibba')
-    .then(images => {
-        /*
-        [{
-            "url": "http://steveangello.com/boss.jpg",
-            "type": "image/jpeg",
-            "width": 1024,
-            "height": 768,
-            "size": 102451,
-            "thumbnail": {
-                "url": "http://steveangello.com/thumbnail.jpg",
-                "width": 512,
-                "height": 512
-            }
-        }]
-         */
-    });
+console.log(images[1] == null);
+

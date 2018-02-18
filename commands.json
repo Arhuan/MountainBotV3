@@ -2,6 +2,10 @@
     "list": [
         "!ping: pong!", 
         "!join: MountainBot will join your voice channel", 
+        "!disconnect: disconnect from voice",
+        "!add [YouTube URL]: adds a video to the queue (plays audio only)",
+        "!play: plays the next video in the queue",
+        "!weather [location]: gets information about the weather at desired location",
         "!help: A list of all commands"
     ]
 }

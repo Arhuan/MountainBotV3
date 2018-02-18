@@ -37,7 +37,16 @@ module.exports = {
         } catch(error){
             message.reply("Give me a proper YouTube URL.");
         }
-    },
+    } ,
+
+    remove : function(message) {
+        if (streams.length != 0) {
+            streams.shift();
+            message.reply ("Song removed.");
+        } else {
+            message.reply("Queue is empty.");
+        }
+    } ,
 
     play : function (message) {
         if (voiceconnection != null) {
