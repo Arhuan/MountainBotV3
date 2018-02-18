@@ -66,7 +66,7 @@ module.exports = {
             if (!dispatcher.paused)
                 dispatcher.pause();
         } else {
-            message.reply("Nothing is playing.");
+            message.reply("It's paused!");
         }
     } ,
 
@@ -75,7 +75,7 @@ module.exports = {
             if (dispatcher.paused)
                 dispatcher.resume();
         } else {
-            message.reply("Nothing is playing.");
+            message.reply("Gucci!");
         }
     }
 }

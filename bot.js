@@ -5,7 +5,7 @@ var weather = require("./weather.js");
 var music = require("./music.js");
 var coinflip = require ("./coinflip.js");
 var bot = new Discord.Client ();
-
+var searchImage = require("./mountainImages.js");
 bot.on("ready", () => {
     console.log("Mountain bot here.");
 })
@@ -74,6 +74,8 @@ function handle_command(cmd, message, target) {
         case "coinflip":
             coinflip.coinflip(message);
             break;
+        case "image":
+            searchImage.searchImg(message, target);
         break;
     }
 }

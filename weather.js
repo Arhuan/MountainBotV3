@@ -10,7 +10,7 @@ module.exports = {
    }
 }
 function getWeather(message, url) {
-    request(url, function (err, response,body)
+    request(url, function (err, response, body)
         { 
            if(err)
             {
@@ -25,3 +25,4 @@ function getWeather(message, url) {
             }
         }) 
 }
+
