@@ -2,6 +2,9 @@
     "list": [
         "!ping: pong!", 
         "!join: MountainBot will join your voice channel", 
-        "!help: A list of all commands"
+        "!help: A list of all commands",
+        "!add: add a video",
+        "!play: play the video",
+        "!disconnect: disconnect from voice"
     ]
 }
