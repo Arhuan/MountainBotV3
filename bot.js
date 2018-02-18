@@ -42,6 +42,9 @@ function handle_command(cmd, message, target) {
         case "join":
             music.join(message);
             break;
+        case "disconnect":
+            music.disconnect(message);
+            break;
         case "help":
             help(message);
             break;
