@@ -1,5 +1,7 @@
 var Discord = require("discord.js");
 var auth = require("./auth.json");
+var fs = require("fs");
+var ytdl = require("ytdl-core");
 
 var bot = new Discord.Client ();
 
