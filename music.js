@@ -3,6 +3,7 @@ var ytdl = require("ytdl-core");
 var streams = [];
 var Discord = require("discord.js");
 var auth = require("./auth.json");
+var voiceconnection;
 
 module.exports = {
     join : function(message) {
@@ -10,6 +11,7 @@ module.exports = {
         if (message.member.voiceChannel) {
             message.member.voiceChannel.join()
             .then(connection => { // Connection is an instance of VoiceConnection
+                voiceconnection = connection;
                 message.reply("I have successfully connected to the channel!");
                 })
                 .catch(console.log);
@@ -23,13 +25,11 @@ module.exports = {
     },
 
     play : function (message) {
-        if (streams.length != 0) {
-            connection => {
-                connection.playStream(streams[0]);
-            }
-            message.reply("Now playing: " + "Gucci gang?");
+        if (voiceconnection != null) {
+            voiceconnection.playStream(streams[0]);
         } else {
             message.reply("No songs in playlist.");
         }
+
     }
 }

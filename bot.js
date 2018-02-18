@@ -57,6 +57,7 @@ function handle_command(cmd, message, target) {
             break;
         case "weather":
             weather.weather(message);
+            break;
         break;
     }
 }
