@@ -1,0 +1,7 @@
+{
+    "list": [
+        "!ping: pong!", 
+        "!join: MountainBot will join your voice channel", 
+        "!help: A list of all commands"
+    ]
+}
