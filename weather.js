@@ -3,14 +3,13 @@
     var Discord = require('discord.js');
     var auth = require('./auth.json');
     let apiKey = 'f25fca686aaf8efdf9713fb2375423df';
-    let city = 'Burnaby';
-    let url = 'http://api.openweathermap.org/data/2.5/weather?q=Burnaby&appid=f25fca686aaf8efdf9713fb2375423df&units=metric';
 module.exports = {
-   weather: function(message) {
-       getWeather(message);
+   weather: function(message, city_name) {
+       var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city_name +'&appid=f25fca686aaf8efdf9713fb2375423df&units=metric';
+       getWeather(message, url);
    }
 }
-function getWeather(message) {
+function getWeather(message, url) {
     request(url, function (err, response,body)
         { 
            if(err)
@@ -24,5 +23,5 @@ function getWeather(message) {
             //console.log(message);
             message.channel.send(text);
             }
-        })
+        }) 
 }

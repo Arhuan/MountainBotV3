@@ -56,7 +56,7 @@ function handle_command(cmd, message, target) {
             music.play(message);
             break;
         case "weather":
-            weather.weather(message);
+            weather.weather(message, target);
             break;
         break;
     }
