@@ -46,7 +46,7 @@ function raccoon(message){
 }
 
 function add(message, url) {
-    streams.push(ytdl(url, "audio"));
+    streams.push(ytdl(url, {filter: "audioonly"}));
     message.reply("Song added.");
 }
 
