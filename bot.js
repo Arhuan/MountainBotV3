@@ -102,8 +102,6 @@ function handle_command(cmd, message, target, arg) {
         case "challenge":
             game.challenge(message, arg);
             break;
-        case "roll":
-            
     break;
     }
 }
