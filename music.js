@@ -54,6 +54,15 @@ module.exports = {
                 message.reply("Queue is empty.");
             } else {
                 dispatcher = voiceconnection.playStream(streams.shift());
+                dispatcher.on("end", () => {
+                    dispatcher = null;
+                    if (streams.length != 0) {
+                        this.play(message);
+                    } else {
+                        message.reply("Queue is now empty!");
+                        voiceconnection.disconnect();
+                    }
+                });
             }
         } else {
             message.reply("No songs in playlist.");
