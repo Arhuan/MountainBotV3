@@ -55,6 +55,9 @@ function handle_command(cmd, message, target) {
             if (target != null) 
                 music.add(message, target);
             break;
+        case "remove":
+            music.remove(message);
+            break;
         case "play":
             music.play(message);
             break;
