@@ -22,9 +22,14 @@ function getWeather(message, url) {
             else
             {
             let weather = JSON.parse(body);
-            let text = 'Its ' + weather.main.temp + ' degrees in ' + weather.name + ' !';
-            message.channel.send(text);
+            try {
+                let text = 'Its ' + weather.main.temp + ' degrees in ' + weather.name + '!';
+                message.channel.send(text);
+            } catch (err) {
+                return;
             }
-        }) 
+            }
+        }
+    ) 
 }
 
