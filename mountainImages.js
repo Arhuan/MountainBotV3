@@ -11,7 +11,14 @@ const client = new GoogleImages(cse_ID, API_Key);
 
 module.exports = {
     searchImg : function (message, target, arg) {
-        client.search(target).then(
+        var keyword = target;
+        if (arg.length > 2) {
+            for (var i = 2 ; i < arg.length; i++) {
+                keyword += (" " + arg[i]);
+            }
+        }
+        
+        client.search(keyword).then(
             function (images) {
                 var i = Math.floor(Math.random()*images.length);
                 message.channel.send(images[i].url);

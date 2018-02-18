@@ -7,7 +7,7 @@ var coinflip = require ("./coinflip.js");
 var bot = new Discord.Client ();
 var searchImage = require("./mountainImages.js");
 var cats = require("./cats.js");
-
+var tictactoe = require("./tictactoe.js");
 bot.on("ready", () => {
     console.log("Mountain bot here.");
 })
@@ -79,6 +79,8 @@ function handle_command(cmd, message, target, arg) {
         case "image":
             searchImage.searchImg(message, target, arg);
             break;
+        case "challenge":
+            tictactoe.playGame(message, arg);
     break;
     }
 }
