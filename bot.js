@@ -6,6 +6,7 @@ var music = require("./music.js");
 var coinflip = require ("./coinflip.js");
 var bot = new Discord.Client ();
 var searchImage = require("./mountainImages.js");
+var cats = require("./cats.js");
 bot.on("ready", () => {
     console.log("Mountain bot here.");
 })
@@ -75,7 +76,15 @@ function handle_command(cmd, message, target, arg) {
             coinflip.coinflip(message);
             break;
         case "image":
+<<<<<<< HEAD
             searchImage.searchImg(message, target, arg);
+=======
+            searchImage.searchImg(message, target);
+            break;
+        case "cats":
+            cats.cats(message);
+            break;
+>>>>>>> 8f3a3254dc8f07120b4113fcbe456a95d8bce8df
         break;
 
     break;
