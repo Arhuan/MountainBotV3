@@ -54,9 +54,17 @@ module.exports = {
                 message.reply("Queue is empty.");
             } else {
                 dispatcher = voiceconnection.playStream(streams.shift());
+                dispatcher.on("end", () => {
+                    dispatcher = null;
+                    if (streams.length != 0) {
+                        this.play(message);
+                    } else {
+                        voiceconnection.disconnect();
+                    }
+                });
             }
         } else {
-            message.reply("No songs in playlist.");
+            message.reply("Not in a voice channel.");
         }
     } ,
 
@@ -76,5 +84,9 @@ module.exports = {
         } else {
             message.reply("Gucci!");
         }
+    } ,
+
+    queue : function(message) {
+
     }
 }
