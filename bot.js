@@ -37,6 +37,12 @@ function help(message) {
     message.reply(reply);
 }
 
+function raccoon(message){
+    message.channel.send("RACCOON!", {
+        file: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg"
+    });
+}
+
 // Command Handler
 
 function handle_command(cmd, message) {
@@ -49,6 +55,9 @@ function handle_command(cmd, message) {
             break;
         case "help":
             help(message);
+            break;
+        case "raccoon":
+            raccoon(message);
             break;
         break;
     }
