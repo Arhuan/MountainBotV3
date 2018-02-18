@@ -2,10 +2,10 @@ var Discord = require("discord.js");
 var auth = require("./auth.json");
 var fs = require("fs");
 var ytdl = require("ytdl-core");
+var commands = require("./commands.json");
+var streams = [];
 
 var bot = new Discord.Client ();
-
-var commands = require("./commands.json");
 
 bot.on("ready", () => {
     console.log("Mountain bot here.");
@@ -45,9 +45,25 @@ function raccoon(message){
     });
 }
 
+function add(message, url) {
+    streams.push(ytdl(url, "audio"));
+    message.reply("Song added.");
+}
+
+function play(message) {
+    if (streams.length != 0) {
+        connection => {
+            connection.playStream(streams[0]);
+        }
+        message.reply("Now playing: " + "Gucci gang?");
+    } else {
+        message.reply("No songs in playlist.");
+    }
+}
+
 // Command Handler
 
-function handle_command(cmd, message) {
+function handle_command(cmd, message, url) {
     switch (cmd) {
         case "ping":
             ping(message);
@@ -61,18 +77,26 @@ function handle_command(cmd, message) {
         case "raccoon":
             raccoon(message);
             break;
+        case "add":
+            if (url != null) 
+                add(message, url);
+            break;
+        case "play":
+            play(message);
+            break;
         break;
     }
 }
 
 // Bot Events
 
-bot.on("message", (message) => {
+bot.on("message", (message, url) => {
     if (message.content.startsWith("!")) {
         var arg = message.content.substring(1).split(" ");
         var cmd = arg[0];
+        var url = arg[1];
 
-        handle_command(cmd, message);
+        handle_command(cmd, message, url);
     }
 });
 
