@@ -1,14 +1,14 @@
 var Discord = require("discord.js");
 var auth = require("./auth.json");
 var commands = require("./commands.json");
-var weather = require("./weather.js");
-var music = require("./music.js");
-var coinflip = require ("./coinflip.js");
+var weather = require("./functions/weather.js");
+var music = require("./functions/music.js");
+var coinflip = require ("./functions/coinflip.js");
 var bot = new Discord.Client ();
-var searchImage = require("./mountainImages.js");
-var cats = require("./cats.js");
-var tictactoe = require("./tictactoe.js");
-var game = require("./game.js");
+var searchImage = require("./functions/mountainImages.js");
+var cats = require("./functions/cats.js");
+var tictactoe = require("./functions/tictactoe.js");
+var game = require("./functions/game.js");
 
 
 bot.on("ready", () => {

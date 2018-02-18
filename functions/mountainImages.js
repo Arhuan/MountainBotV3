@@ -1,4 +1,4 @@
-var keys = require("./keys.json");
+var keys = require("../keys.json");
 
 var Discord = require("discord.js");
 
