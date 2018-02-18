@@ -1,11 +1,10 @@
+var keys = require("./key.json");
 
-// CSE ID : 008030941676365421230:jptivdegq0w
-// API KEY :AIzaSyBN2S7JKaiww6s6BQM8FRBjf-0UgZv1jq8
 var Discord = require("discord.js");
 var auth = require("./auth.json");
 
-const cse_ID  = '005832064830925815114:e_xlpswsc5e';
-const API_Key = 'AIzaSyCY1vES20Cxn7pYPOjob0amdf9x-mWGbVs';
+const cse_ID  = keys.cse_ID;
+const API_Key = keys.API_key;
 const GoogleImages = require('google-images');
  
 const client = new GoogleImages(cse_ID, API_Key);
