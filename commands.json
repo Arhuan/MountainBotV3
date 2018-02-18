@@ -1,16 +1,17 @@
 {
     "list": [
-        "!ping: pong!", 
-        "!join: MountainBot will join your voice channel", 
-        "!disconnect: disconnect from voice",
-        "!add [YouTube URL]: adds a video to the queue (plays audio only)",
-        "!remove: removes the first video in the queue (if there is one).", 
-        "!play: plays the next video in the queue",
-        "!pause: pause the current song.",
-        "!resume: resume the playback.",
-        "!weather [location]: gets information about the weather at desired location",
-        "!coinflip: Flips a coin",
-        "!cats: generate a cat!",
-        "!help: A list of all commands"
+        "^ping: pong!", 
+        "^join: MountainBot will join your voice channel", 
+        "^disconnect: disconnect from voice",
+        "^add [YouTube URL]: adds a video to the queue (plays audio only)",
+        "^remove: removes the first video in the queue (if there is one).", 
+        "^play: plays the next video in the queue",
+        "^pause: pause the current song.",
+        "^resume: resume the playback.",
+        "^weather [location]: gets information about the weather at desired location",
+        "^image [search terms here]: search up an image on google.",
+        "^coinflip: flips a coin",
+        "^cats: generate a cat!",
+        "^help: a list of all commands"
     ]
 }
