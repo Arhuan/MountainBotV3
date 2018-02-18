@@ -12,10 +12,11 @@ const client = new GoogleImages(cse_ID, API_Key);
 
 
 module.exports = {
-    searchImg : function (message, target) {
+    searchImg : function (message, target, arg) {
         client.search(target).then(
             function (images) {
-                message.channel.send(images[0].url);
+                var i = Math.floor(Math.random()*images.length);
+                message.channel.send(images[i].url);
             },
             function (reason) {
                 message.channel.send("search failed!");

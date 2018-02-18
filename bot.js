@@ -35,7 +35,7 @@ function raccoon(message){
 
 // Command Handler
 
-function handle_command(cmd, message, target) {
+function handle_command(cmd, message, target, arg) {
     switch (cmd) {
         case "ping":
             ping(message);
@@ -75,8 +75,10 @@ function handle_command(cmd, message, target) {
             coinflip.coinflip(message);
             break;
         case "image":
-            searchImage.searchImg(message, target);
+            searchImage.searchImg(message, target, arg);
         break;
+
+    break;
     }
 }
 
@@ -87,8 +89,7 @@ bot.on("message", (message, target) => {
         var arg = message.content.substring(1).split(" ");
         var cmd = arg[0];
         var target = arg[1];
-
-        handle_command(cmd, message, target);
+        handle_command(cmd, message, target, arg);
     }
 });
 
