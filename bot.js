@@ -1,10 +1,8 @@
 var Discord = require("discord.js");
 var auth = require("./auth.json");
-var fs = require("fs");
-var ytdl = require("ytdl-core");
 var commands = require("./commands.json");
-var streams = [];
-
+var weather = require("./weather.js");
+var music = require("./music.js");
 var bot = new Discord.Client ();
 
 bot.on("ready", () => {
@@ -17,18 +15,6 @@ function ping(message) {
     message.channel.send("pong!");
 }
 
-function join(message) {
-    if (!message.guild) return;
-    if (message.member.voiceChannel) {
-        message.member.voiceChannel.join()
-        .then(connection => { // Connection is an instance of VoiceConnection
-            message.reply("I have successfully connected to the channel!");
-            })
-            .catch(console.log);
-    } else {
-        message.reply("You are not in a voice channel.");
-    }
-}
 
 function help(message) {
     var reply = "\nList of available commands:\n";
@@ -45,21 +31,6 @@ function raccoon(message){
     });
 }
 
-function add(message, url) {
-    streams.push(ytdl(url, {filter: "audioonly"}));
-    message.reply("Song added.");
-}
-
-function play(message) {
-    if (streams.length != 0) {
-        connection => {
-            connection.playStream(streams[0]);
-        }
-        message.reply("Now playing: " + "Gucci gang?");
-    } else {
-        message.reply("No songs in playlist.");
-    }
-}
 
 // Command Handler
 
@@ -69,7 +40,7 @@ function handle_command(cmd, message, url) {
             ping(message);
             break;
         case "join":
-            join(message);
+            music.join(message);
             break;
         case "help":
             help(message);
@@ -79,11 +50,13 @@ function handle_command(cmd, message, url) {
             break;
         case "add":
             if (url != null) 
-                add(message, url);
+                music.add(message, url);
             break;
         case "play":
-            play(message);
+            music.play(message);
             break;
+        case "weather":
+            weather.weather(message);
         break;
     }
 }
