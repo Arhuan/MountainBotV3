@@ -4,6 +4,7 @@ var streams = [];
 var Discord = require("discord.js");
 var auth = require("./auth.json");
 var voiceconnection;
+var dispatcher;
 
 module.exports = {
     join : function(message) {
@@ -53,11 +54,28 @@ module.exports = {
             if (streams.length == 0) {
                 message.reply("Queue is empty.");
             } else {
-                voiceconnection.playStream(streams.shift());
+                dispatcher = voiceconnection.playStream(streams.shift());
             }
         } else {
             message.reply("No songs in playlist.");
         }
+    } ,
 
+    pause : function(message) {
+        if (dispatcher != null) {
+            if (!dispatcher.paused)
+                dispatcher.pause();
+        } else {
+            message.reply("Nothing is playing.");
+        }
+    } ,
+
+    resume : function(message) {
+        if (dispatcher != null) {
+            if (dispatcher.paused)
+                dispatcher.resume();
+        } else {
+            message.reply("Nothing is playing.");
+        }
     }
 }
