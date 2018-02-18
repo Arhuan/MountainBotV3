@@ -3,6 +3,7 @@ var auth = require("./auth.json");
 var commands = require("./commands.json");
 var weather = require("./weather.js");
 var music = require("./music.js");
+var coinflip = require ("./coinflip.js");
 var bot = new Discord.Client ();
 
 bot.on("ready", () => {
@@ -55,11 +56,17 @@ function handle_command(cmd, message, target) {
             if (target != null) 
                 music.add(message, target);
             break;
+        case "remove":
+            music.remove(message);
+            break;
         case "play":
             music.play(message);
             break;
         case "weather":
             weather.weather(message, target);
+            break;
+        case "coinflip":
+            coinflip.coinflip(message);
             break;
         break;
     }
