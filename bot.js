@@ -34,7 +34,7 @@ function raccoon(message){
 
 // Command Handler
 
-function handle_command(cmd, message, url) {
+function handle_command(cmd, message, target) {
     switch (cmd) {
         case "ping":
             ping(message);
@@ -49,8 +49,8 @@ function handle_command(cmd, message, url) {
             raccoon(message);
             break;
         case "add":
-            if (url != null) 
-                music.add(message, url);
+            if (target != null) 
+                music.add(message, target);
             break;
         case "play":
             music.play(message);
@@ -63,13 +63,13 @@ function handle_command(cmd, message, url) {
 
 // Bot Events
 
-bot.on("message", (message, url) => {
+bot.on("message", (message, target) => {
     if (message.content.startsWith("!")) {
         var arg = message.content.substring(1).split(" ");
         var cmd = arg[0];
-        var url = arg[1];
+        var target = arg[1];
 
-        handle_command(cmd, message, url);
+        handle_command(cmd, message, target);
     }
 });
 
