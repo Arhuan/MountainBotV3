@@ -2,7 +2,6 @@ var fs = require("fs");
 var ytdl = require("ytdl-core");
 var streams = [];
 var Discord = require("discord.js");
-var auth = require("./auth.json");
 var voiceconnection;
 var dispatcher;
 

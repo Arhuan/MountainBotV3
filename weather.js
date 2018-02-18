@@ -1,7 +1,6 @@
 
     const request = require('request');
     var Discord = require('discord.js');
-    var auth = require('./auth.json');
     let apiKey = 'f25fca686aaf8efdf9713fb2375423df';
 module.exports = {
    weather: function(message, city_name) {
