@@ -3,6 +3,8 @@ var auth = require('./auth.json');
 
 var bot = new Discord.Client ();
 
+var commands = ["!ping: pong!", "!join: MountainBot will join your voice channel", "!help: A list of all commands"];
+
 bot.on("ready", () => {
     console.log("Mountain bot here.");
 })
@@ -26,6 +28,17 @@ function join(message) {
     }
 }
 
+function help(message) {
+    var reply = "\nList of available commands:\n";
+    for (i = 0; i < commands.length; i++) {
+        var to_add = "\n" + commands[i];
+        reply += to_add;
+    }
+    message.reply(reply);
+}
+
+// Command Handler
+
 function handle_command(cmd, message) {
     switch (cmd) {
         case "ping":
@@ -33,6 +46,9 @@ function handle_command(cmd, message) {
             break;
         case "join":
             join(message);
+            break;
+        case "help":
+            help(message);
             break;
         break;
     }
