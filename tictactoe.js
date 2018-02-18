@@ -1,5 +1,3 @@
-var Discord = require("discord.js");
-
 
 
 function createMatrix (arr, rows) {
@@ -74,8 +72,4 @@ class TicGame {
               this.bd[2][0] + " | " + this.bd[2][1] + " | " + this.bd[2][2] + "\n" +
               "``` \n";
     };
-}
-
-function playGame(message, arg) {
-    let game = new TicGame();
 }

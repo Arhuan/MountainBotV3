@@ -1,16 +1,20 @@
 
-    const request = require('request');
-    var Discord = require('discord.js');
-    let apiKey = 'f25fca686aaf8efdf9713fb2375423df';
+const request = require('request');
+var Discord = require('discord.js');
+let apiKey = 'f25fca686aaf8efdf9713fb2375423df';
+
+
 module.exports = {
-   weather: function(message, city_name) {
-       var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city_name +'&appid=f25fca686aaf8efdf9713fb2375423df&units=metric';
+   weather: function(message, city_id) {
+       var url = "api.openweathermap.org/data/2.5/weather?id=" + city_id;
        getWeather(message, url);
    }
 }
+
 function getWeather(message, url) {
     request(url, function (err, response, body)
-        { 
+        {  
+        console.log(JSON.parse(body));
            if(err)
             {
                 console.log('error',error);
@@ -19,7 +23,6 @@ function getWeather(message, url) {
             {
             let weather = JSON.parse(body);
             let text = 'Its ' + weather.main.temp + ' degrees in ' + weather.name + ' !';
-            //console.log(message);
             message.channel.send(text);
             }
         }) 

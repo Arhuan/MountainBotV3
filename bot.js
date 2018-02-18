@@ -8,8 +8,16 @@ var bot = new Discord.Client ();
 var searchImage = require("./mountainImages.js");
 var cats = require("./cats.js");
 var tictactoe = require("./tictactoe.js");
+var city_list = require('./city.list.json');
+var game = require("./game.js");
+
+
 bot.on("ready", () => {
+    var presence = {
+        game : {name : "^"}
+    }
     console.log("Mountain bot here.");
+    bot.user.setPresence(presence);
 })
 
 // List of Commands
@@ -93,7 +101,10 @@ function handle_command(cmd, message, target, arg) {
             searchImage.searchImg(message, target, arg);
             break;
         case "challenge":
-            tictactoe.playGame(message, arg);
+            game.challenge(message, arg);
+            break;
+        case "roll":
+            
     break;
     }
 }
@@ -101,7 +112,10 @@ function handle_command(cmd, message, target, arg) {
 // Bot Events
 
 bot.on("message", (message, target) => {
-    if (message.content.startsWith("!")) {
+    if (message.content == 'ayy') {
+        message.channel.send('lmao');
+    }
+    if (message.content.startsWith("^")) {
         var arg = message.content.substring(1).split(" ");
         var cmd = arg[0];
         var target = arg[1];
